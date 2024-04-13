@@ -1,0 +1,16 @@
+Private Sub CommandButton1_Click()
+    ' Define your range
+    Dim minValue As Integer, maxValue As Integer, randomNumber As Integer
+    
+    ' Set your range
+    minValue = Range("B3").Value
+    maxValue = Range("C3").Value
+    
+    ' Generate a random number within the range (excluding a specific number)
+    Do
+        randomNumber = Int((maxValue - minValue + 1) * Rnd + minValue)
+    Loop While randomNumber = Range("A3").Value ' While the value == A3, keep randomize
+    
+    ' Assign the random number to cell F4
+    Range("F4").Value = randomNumber
+End Sub
